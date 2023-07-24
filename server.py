@@ -25,7 +25,12 @@ while True:
         encoded,buffer = cv2.imencode('.jpg',frame,[cv2.IMWRITE_JPEG_QUALITY,80])
         message = base64.b64encode(buffer)
         print(message)
-        server_socket.sendto(message, client_address)
+        i = 0 
+        while i * BUFF_SIZE < len(message):
+            msg = message[(i - 1) * BUFF_SIZE : i * BUFF_SIZE]
+            server_socket.sendto(msg, client_address)
+            print("===== Message ======")
+            i += 1
         print("Frame Sent...")
 
         if cnt == frame_to_count:
