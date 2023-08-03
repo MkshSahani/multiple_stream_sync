@@ -122,5 +122,7 @@ def recv_mouse_control_stream():
 
 recv_vedio_thread = threading.Thread(target = recv_video_stream, args = ())
 recv_audio_thread = threading.Thread(target = recv_audio_stream, args = ())
+recv_mouse_control_thread = threading.Thread(target = recv_mouse_control_stream, args = ())
 recv_vedio_thread.start() 
 recv_audio_thread.start()
+recv_mouse_control_thread.start()
