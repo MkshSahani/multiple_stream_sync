@@ -17,7 +17,7 @@ msg, client_socket = mouse_server_server.recvfrom(1024)
 print(f"[*] Msg recieved : {msg.decode()}")
 prev_current_time = time.time()
 seq_number = 0
-while True: 
+while True:
     pos = mouse_controler.position 
     data.append(pos)
     current_time = time.time()
